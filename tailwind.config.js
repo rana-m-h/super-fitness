@@ -10,6 +10,9 @@ const config = {
 	],
 	theme: {
 		extend: {
+			backgroundImage: {
+				'text-gradient-gray': 'linear-gradient(to right, #242424, #ffffff)',
+			},
 			fontFamily: {
 				inter: ["font-nter", "sans-serif"],
 				roboto: ["font-roboto", "sans-serif"],
@@ -35,6 +38,7 @@ const config = {
 			colors: {
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
+
 				card: {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
