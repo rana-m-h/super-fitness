@@ -12,6 +12,8 @@ import { useNavigate } from "react-router-dom";
 export default function CategoriesCarousel() {
   // Translation
   const t = useTranslations();
+
+  // Navigate
   const navigate = useNavigate();
 
   const {
