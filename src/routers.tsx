@@ -5,6 +5,7 @@ import HealthyPage from "./app/[locale]/healthy/page";
 import ClassesPage from "./app/[locale]/classes/page";
 import RootLayout from "./app/layout";
 import NotFound from "./app/[locale]/not-found";
+import MealDetails from "./app/[locale]/healthy/_components/meals-details";
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,7 @@ const router = createBrowserRouter([
       { path: "about", element: <AboutPage /> },
       { path: "healthy", element: <HealthyPage /> },
       { path: "classes", element: <ClassesPage /> },
+      { path: "/mealsdetails/:id", element: <MealDetails /> },
     ],
   },
   { path: "*", element: <NotFound /> },

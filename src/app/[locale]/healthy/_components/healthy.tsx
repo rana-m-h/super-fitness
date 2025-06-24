@@ -7,10 +7,12 @@ import useCategoriesCarousel from "@/hooks/use-categories-carousel";
 import QueryStateHandler from "@/components/common/query-state-handler";
 import { useTranslations } from "use-intl";
 import ArrowRight from "@/components/common/arrow-right";
+import { useNavigate } from "react-router-dom";
 
 export default function CategoriesCarousel() {
   // Translation
   const t = useTranslations();
+  const navigate = useNavigate();
 
   const {
     categories,
@@ -79,7 +81,8 @@ export default function CategoriesCarousel() {
                           actionIcon={<ArrowRight />}
                           className="h-[397px] w-full sm:w-[403px]"
                           mode="Exploer"
-                          onClick={() => meal.idMeal}
+                          onClick={() => navigate(`/mealsdetails/${meal.idMeal}`)}
+                          onActionClick={() => navigate(`/mealsdetails/${meal.idMeal}`)}
                         />
                       ))}
                     </div>
