@@ -5,16 +5,14 @@ import {
   type CarouselApi,
 } from "@/components/ui/carousel";
 import { CarouselDots } from "@/components/ui/carousel-dots";
-import { useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useTranslations } from "use-intl";
-import MuscleCard from "./muscle-card";
 import { useRandomMuscles } from "@/hooks/use-random-muscles";
-export default function MuscleGroupList({
-  variant,
-}: {
-  variant?: "carousel" | "grid";
-}) {
+import Card from "./card";
+import ArrowRight from "@/components/common/arrow-right";
+
+export default function MuscleGroupList({ variant }: { variant?: "carousel" | "grid" }) {
   // Translations
   const t = useTranslations();
 
@@ -24,6 +22,7 @@ export default function MuscleGroupList({
   // Navigate
   const [searchParams] = useSearchParams();
   const [api, setApi] = useState<CarouselApi | null>(null);
+  const navigate = useNavigate();
 
   // Get selected muscle
   const selectedMuscleId = searchParams.get("muscleGroup");
@@ -58,58 +57,59 @@ export default function MuscleGroupList({
   function getCarouselItems() {
     if (variant === "carousel") {
       return displayedMuscles.map((muscle) => (
-        <CarouselItem key={muscle._id} className="pl-4 basis-1/3">
-          <MuscleCard muscle={muscle} />
+        <CarouselItem
+          key={muscle._id}
+          className="basis-full sm:basis-1/2 md:basis-1/2 lg:basis-1/3"
+        >
+          <div onClick={() => navigate(`/classes/${muscle._id}`)} className="cursor-pointer">
+            <Card
+              title={muscle.name}
+              image={muscle.image ?? ""}
+              actionLabel={t("explore")}
+              actionIcon={<ArrowRight />}
+              className="w-[320px] h-[397px] sm:w-[400px]"
+              mode="Exploer"
+            />
+          </div>
         </CarouselItem>
       ));
     }
 
     // Create muscles grid layout
-    return Array.from(
-      { length: Math.ceil(displayedMuscles.length / 2) },
-      (_, i) => {
-        const grid = displayedMuscles.slice(i * 2, i * 2 + 2);
-        return (
-          <CarouselItem
-            key={i}
-            className="pl-4 basis-full sm:basis-1/2 md:basis-1/3"
-          >
-            <div className="flex flex-col gap-6">
-              {grid.map((muscle: Muscle) => (
-                <div
-                  key={muscle._id}
-                  className="rounded-xl hover:scale-[1.02] transition bg-soft-gray-200 overflow-hidden"
-                >
-                  <MuscleCard muscle={muscle} />
-                </div>
-              ))}
-            </div>
-          </CarouselItem>
-        );
-      }
-    );
+    return Array.from({ length: Math.ceil(displayedMuscles.length / 2) }, (_, i) => {
+      const grid = displayedMuscles.slice(i * 2, i * 2 + 2);
+      return (
+        <CarouselItem key={i} className="pl-4 basis-full sm:basis-1/2 md:basis-1/2 lg:basis-1/3">
+          <div className="flex flex-col gap-6 w-full max-w-[403px] mx-auto cursor-pointer">
+            {grid.map((muscle: Muscle) => (
+              <div key={muscle._id} onClick={() => navigate(`/classes/${muscle._id}`)}>
+                <Card
+                  title={muscle.name}
+                  image={muscle.image ?? ""}
+                  actionLabel={t("explore")}
+                  actionIcon={<ArrowRight />}
+                  className="w-[380px] h-[350px] bg-white/50 backdrop-blur-md "
+                  mode="Exploer"
+                />
+              </div>
+            ))}
+          </div>
+        </CarouselItem>
+      );
+    });
   }
 
   return (
     <div className="px-16 py-10">
       {/* Carousel */}
       <div className="relative">
-        <Carousel
-          opts={{ align: "start", slidesToScroll: 1 }}
-          setApi={setApi}
-          className="w-full"
-        >
+        <Carousel opts={{ align: "start", slidesToScroll: 1 }} setApi={setApi} className="w-full">
           {/*  Carousel content */}
-          <CarouselContent className="-ml-4">
-            {getCarouselItems()}
-          </CarouselContent>
-
-          {/* Carousel navigation arrows */}
-
-          </Carousel>
+          <CarouselContent className="-ml-4">{getCarouselItems()}</CarouselContent>
+        </Carousel>
 
         {/* Dots  */}
-        <div className="mt-6 flex justify-center">
+        <div className="mt-5 flex justify-center">
           <CarouselDots
             totalSlides={
               variant === "carousel"
@@ -120,9 +120,7 @@ export default function MuscleGroupList({
             onDotClick={(index) => api?.scrollTo(index)}
             dotClassName={(index) =>
               `w-2 h-2 mx-1 rounded-full transition-all duration-300 ${
-                index === currentIndex
-                  ? "bg-flame-orange-500"
-                  : "bg-soft-gray-300"
+                index === currentIndex ? "bg-flame-orange-500 w-5" : "bg-soft-gray-900"
               }`
             }
           />

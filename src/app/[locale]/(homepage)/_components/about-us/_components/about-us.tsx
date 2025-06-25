@@ -1,6 +1,7 @@
 import ArrowUpRight from "@/components/common/arrow-long-right";
+import DumbbellIcon from "@/components/common/dumbbell";
+import WorkoutsLogo from "@/components/common/workouts-logo";
 import { Button } from "@/components/ui/button";
-import { Dumbbell } from "lucide-react";
 import { useTranslations } from "use-intl";
 
 export default function AboutUs() {
@@ -28,8 +29,8 @@ export default function AboutUs() {
   ];
 
   return (
-    <section className="w-full bg-white  mb-14 font-baloo">
-      <div className="mx-auto px-4 sm:px-6 lg:py-8 max-w-screen-xl">
+    <section className="w-fullbg-white/95 backdrop-blur-[86px]  mb-14 font-baloo ">
+      <div className="mx-auto px-4 sm:px-6 mb-32 md:mb-0 lg:py-8 max-w-screen-xl">
         {/*  Grid  */}
         <div className="flex flex-col-reverse md:grid md:grid-cols-2 gap-10 lg:gap-y-0 gap-y-12 items-center">
           {/* Images */}
@@ -58,17 +59,15 @@ export default function AboutUs() {
 
           {/* Text content */}
           <div className="rtl:text-right mt-8 ">
-            <div className="relative mb-8">
-              <h2 className="absolute sm:-top-6 ltr:left-0 rtl:right-0 rtl:left-auto text-5xl sm:text-7xl font-extrabold font-montserrat uppercase text-gray-200 opacity-30  z-0">
-                {t("about-us-title")}
-              </h2>
+            <div className="relative mb-8   ">
+              {/* Title  */}
+              <span className="absolute sm:-top-4 ltr:left-0 rtl:right-0 rtl:left-auto z-0 ">
+                <WorkoutsLogo text={t("about-us-title")} />
+              </span>
 
-              {/* About us*/}
-              <div className="relative z-10 flex items-center gap-2 -bottom-6 ">
-                <Dumbbell className="w-5 h-5 text-flame-orange-500 rotate-45" />
-                <span className="text-sm font-semibold text-flame-orange-500">
-                  {t("about-us")}
-                </span>
+              {/* Icon and label for about us */}
+              <div className="relative z-10 flex items-center gap-2 -bottom-6 capitalize ">
+                <DumbbellIcon text={t("about-us")} />
               </div>
             </div>
 
@@ -84,7 +83,7 @@ export default function AboutUs() {
             </p>
 
             {/* Services grid */}
-                      
+
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-6 mb-8 border-gray-200 pt-6 ">
               {Array.from({ length: Math.floor(services.length / 2) }, (_, i) => {
                 const group = services.slice(i * 2, i * 2 + 2);
@@ -99,12 +98,12 @@ export default function AboutUs() {
                               {/* Icon */}
                               <ArrowUpRight className="w-4 h-4 text-flame-orange-500 mt-1" />
 
-                            {/* Title */}
+                              {/* Title */}
                               <h4 className="font-bold text-dark-gray-800 text-base mb-1 capitalize">
                                 {service.title}
                               </h4>
                             </div>
-                              {/*  Description */}
+                            {/*  Description */}
                             <p className="text-lg font-normal  text-dark-gray-800 leading-relaxed">
                               {service.description}
                             </p>
@@ -112,23 +111,21 @@ export default function AboutUs() {
                         </div>
                       ))}
                     </div>
-                        {/* Border */}
-                    {i === 0 && (
-                      <div className="w-full h-px bg-gray-100 my-3"></div>
-                    )}
+                    {/* Border */}
+                    {i === 0 && <div className="w-full h-px bg-gray-100 my-3"></div>}
                   </div>
                 );
               })}
             </div>
 
             {/* Get started button */}
-       
-               <div className="relative">
-                <Button className=" w-36 me-8 rounded-2xl bg-flame-orange-500 relative capitalize">
+
+            <div className="relative">
+              <Button className=" w-36 me-8 rounded-2xl bg-flame-orange-500 relative capitalize">
                 {t("get-started")}
               </Button>
-                <ArrowUpRight className="absolute top-1 p-[2px] left-32 rtl:-right-5 ms-2 w-6 h-6 text-whit  bg-flame-orange-500 rounded-full border-2 border-white text-white " />
-              </div>
+              <ArrowUpRight className="absolute top-1 p-[2px] left-32 rtl:-right-5 ms-2 w-6 h-6 text-whit  bg-flame-orange-500 rounded-full border-2 border-white text-white " />
+            </div>
           </div>
         </div>
       </div>
