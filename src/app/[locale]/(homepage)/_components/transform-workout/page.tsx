@@ -21,7 +21,7 @@ export default function TransformWorkout() {
               <WorkoutsLogo text={t("about-us-title")} />
 
               {/* Icon and label for fitness */}
-              <div className="relative z-10 flex items-center gap-2 -bottom-2 ">
+              <div className="relative z-10 flex items-center gap-2 -bottom-2 capitalize ">
                 <DumbbellIcon text={t("fitness")} />
               </div>
             </div>
