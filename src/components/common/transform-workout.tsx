@@ -61,13 +61,16 @@ export default function MuscleGroupList({ variant }: { variant?: "carousel" | "g
           key={muscle._id}
           className="basis-full sm:basis-1/2 md:basis-1/2 lg:basis-1/3"
         >
-          <div onClick={() => navigate(`/classes/${muscle._id}`)} className="cursor-pointer">
+          <div
+            onClick={() => navigate(`/classes/${muscle._id}`)}
+            className="cursor-pointer flex flex-col gap-6 w-full max-w-[403px] mx-auto"
+          >
             <Card
               title={muscle.name}
-              image={muscle.image ?? ""}
+              image={muscle.image}
               actionLabel={t("explore")}
               actionIcon={<ArrowRight />}
-              className="w-[320px] h-[397px] sm:w-[400px]"
+              className="w-full h-[350px] bg-white/50 backdrop-blur-md"
               mode="Exploer"
             />
           </div>
@@ -85,10 +88,10 @@ export default function MuscleGroupList({ variant }: { variant?: "carousel" | "g
               <div key={muscle._id} onClick={() => navigate(`/classes/${muscle._id}`)}>
                 <Card
                   title={muscle.name}
-                  image={muscle.image ?? ""}
+                  image={muscle.image}
                   actionLabel={t("explore")}
                   actionIcon={<ArrowRight />}
-                  className="w-[380px] h-[350px] bg-white/50 backdrop-blur-md "
+                  className="w-full h-[350px] bg-white/50 backdrop-blur-md"
                   mode="Exploer"
                 />
               </div>

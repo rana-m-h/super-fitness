@@ -7,7 +7,7 @@ export default function Hero() {
   const t = useTranslations();
 
   return (
-    <div className="relative w-full h-full bg-[url('/assets/images/bg-form.png')] bg-cover bg-center">
+    <div className="relative w-full h-full bg-[url('/assets/bg-form.png')] bg-cover bg-center">
       <div className="absolute inset-0 bg-white bg-opacity-60 backdrop-blur-2xl" />
       {/* Hero Section */}
       <section className="relative z-10 py-8 md:py-16 md:px-8 mx-4">
@@ -54,7 +54,7 @@ export default function Hero() {
             </div>
 
             {/* Get start btn */}
-            <div className="mt-8 flex space-y-2 items-center">
+            <div className="mt-16 flex space-y-2 items-center">
               <div className="relative">
                 <Button className=" w-36 me-8 rounded-2xl bg-flame-orange-500 relative capitalize">
                   {t("get-started")}
@@ -64,7 +64,7 @@ export default function Hero() {
               {/* Explore classes btn */}
 
               <div className="relative">
-                <Button className="w-36 rounded-2xl border-2 border-flame-orange-500 relative text-flame-orange-500 bg-white">
+                <Button className="w-36 rounded-2xl border-2 border-flame-orange-500 relative text-flame-orange-500 bg-transparent">
                   {t("explore-classes")}
                 </Button>
                 <ArrowUpRight className="absolute top-1 p-[2px] -right-4 rtl:-right-4 ml-2 w-6 h-6 text-whit  bg-flame-orange-500 rounded-full border-2 border-white text-white " />
