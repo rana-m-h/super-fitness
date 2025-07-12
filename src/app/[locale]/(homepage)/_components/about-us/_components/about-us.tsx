@@ -57,15 +57,15 @@ export default function AboutUs() {
           </div>
 
           {/* Text content */}
-          <div className="rtl:text-right mt-8 ">
-            <div className="relative mb-8   ">
+          <div className="rtl:text-right mt-8">
+            <div className="relative mb-8">
               {/* Title  */}
-              <span className="absolute sm:-top-4 ltr:left-0 rtl:right-0 rtl:left-auto ">
+              <span className="absolute sm:-top-4 ltr:left-0 rtl:right-0 rtl:left-auto">
                 <WorkoutsLogo text={t("aboutus")} />
               </span>
 
               {/* Icon for about us */}
-              <div className="relative z-10 flex items-center gap-2 -bottom-6 capitalize ">
+              <div className="relative z-10 flex items-center gap-2 -bottom-6 capitalize">
                 <DumbbellIcon text={t("about-us")} />
               </div>
             </div>
