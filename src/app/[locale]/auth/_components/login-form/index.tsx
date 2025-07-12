@@ -147,13 +147,12 @@ export default function LoginForm() {
 
             {/* Forget button */}
             <div className="flex ">
-              <Button
-                variant="link"
-                className="text-flame-orange-500 underline ml-auto"
+              <p
+                className="text-flame-orange-500 underline ml-auto font-baloo cursor-pointer"
                 onClick={() => navigate("/forgot-password")}
               >
                 {t("forgot-password")}
-              </Button>
+              </p>
             </div>
 
             {/* Error message */}

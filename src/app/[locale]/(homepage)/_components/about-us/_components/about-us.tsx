@@ -60,7 +60,7 @@ export default function AboutUs() {
           <div className="rtl:text-right mt-8 ">
             <div className="relative mb-8   ">
               {/* Title  */}
-              <span className="absolute sm:-top-4 ltr:left-0 rtl:right-0 rtl:left-auto ">
+              <span className="absolute sm:-top-4 ltr:left-0 rtl:right-0 rtl:left-auto">
                 <WorkoutsLogo text={t("aboutus")} />
               </span>
 

@@ -17,7 +17,7 @@ export default function WhyUs() {
               <WorkoutsLogo text={t("why-us")} />
 
               {/* Icon and label for healthy nutrltions */}
-              <div className="relative z-10 flex items-center top-11 left-0 ">
+              <div className="relative z-10 flex items-center top-6 left-0  sm:top-11">
                 <DumbbellIcon text={t("why-us")} />
               </div>
             </div>

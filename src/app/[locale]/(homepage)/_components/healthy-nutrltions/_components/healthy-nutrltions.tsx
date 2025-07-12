@@ -20,7 +20,7 @@ export default function HealthyNutrltions() {
     <div className="relative w-full">
       <div className="absolute inset-0">
         {/* Healthy logo */}
-        <div className="absolute top-12 left-0 right-0  flex justify-center items-center gap-2 mb-8">
+        <div className="absolute top-12  left-0 right-0  flex justify-center items-center gap-2 mb-8">
           <WorkoutsLogo text={t("healthy")} />
 
           {/* Healthy nutrltions icon */}
